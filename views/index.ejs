@@ -1,0 +1,76 @@
+<html>
+<head>
+    <link href="bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <h3>Dodaj korisnika</h3>
+<form method="POST" action="/user/add"> 
+    <label>Ime Korisnika</label><br>
+    <input type="text" name="userName"></input>
+    <br><br>
+    <input type="submit" value="Dodaj korisnika">
+</form>
+
+    <h3>Dodaj post</h3>
+<form method="POST" action="/post/add"> 
+    <label>Ime Posta</label><br>
+    <input type="text" name="postName"></input>
+    <br>
+   <br>
+    <label>Dodajte link od slike</label><br>
+    <input type="text" name="imgName"></input>
+    <br><br>
+    <input type="submit" value="Dodaj post">
+</form>
+
+<h3>Dodaj post korisniku</h3>
+<form method="POST" action="/user/post/add"> 
+    <label>Ime Posta</label><br>
+    <input type="text" name="postName"></input>
+    <br>
+    <br>
+    <label>Ime Korisnika</label><br>
+    <input type="text" name="userName"></input>
+    <br><br>
+    <input type="submit" value="Dodaj">
+</form>
+
+<h3>Obrisi post</h3>
+<form method="POST" action="/post/delete"> 
+    <label>Ime Posta</label><br>
+    <input type="text" name="postName"></input>
+
+    <br><br>
+    <input type="submit" value="Obrisi">
+</form>
+
+<h3>Update Post</h3>
+<form method="POST" action="/post/update"> 
+    <label>Ime posta</label><br>
+    <input type="text" name="postName"></input>
+    <br>
+    <label>Promeni link slike</label>
+    <br>
+    <input type="text" name="postUrl"></input>
+    <br><br>
+    <input type="submit" value="Update">
+</form>
+
+
+
+<h1>Users</h1>
+<ul>
+<% users.forEach(function(user){ %>
+    <li>ime:<%= user.name %><br> id:<%= user.id %></li>
+<% }) %>
+</ul>
+
+<h1>Posts</h1>
+<ul>
+<% posts.forEach(function(post){ %>
+    <li>ime:<%= post.name %><br> id:<%= post.id %> <br><img src=<%= post.url %>></li>
+<% }) %>
+</ul>
+
+</body>
+</html>
